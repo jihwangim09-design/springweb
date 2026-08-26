@@ -1,4 +1,5 @@
-package example.day01;
+
+/*package example.day01;
 
 import java.io.IOException;
 
@@ -44,3 +45,5 @@ public class BoardController extends HttpServlet {
 
 
 }
+
+*/
