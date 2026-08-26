@@ -1,5 +1,7 @@
 package example.day02.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,6 +38,15 @@ public class BoardController {
     @PostMapping("/board/save") //
     public boolean save( BoardDto boardDto) {
         boolean result = bd.save(boardDto);
+        return result;
+    }
+
+   
+ 	
+    // [2] 전체조회
+    @GetMapping( "/board/findall" )
+    public ArrayList<BoardDto> findAll( ){
+        ArrayList<BoardDto> result = bd.findAll();
         return result;
     }
 }
