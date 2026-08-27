@@ -36,7 +36,7 @@ public class WaitingController {
     }
     // [4] 개별삭제
     @DeleteMapping( "/waiting/delete" )
-    public boolean delete( @RequestParam String phone ){
+    public boolean delete( @RequestParam("phone") String phone ){
         return wd.delete( phone );
     }
     
