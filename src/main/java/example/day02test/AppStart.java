@@ -1,4 +1,4 @@
-package example.day02test;
+/*package example.day02test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +9,5 @@ public class AppStart {
 
         SpringApplication.run( AppStart.class );
     } // main end
-} // class end
+} // class end*/
 

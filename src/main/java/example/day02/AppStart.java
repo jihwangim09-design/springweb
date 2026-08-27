@@ -17,4 +17,4 @@ public class AppStart {
         // 3. ctrl+F5: 실행 , 주의할점 : 2개 이상 실행 불가능 
         // 4. 실행 확인 : http://127.0.0.1:8080
     } // main end 
-} // class end 
+} // class end
