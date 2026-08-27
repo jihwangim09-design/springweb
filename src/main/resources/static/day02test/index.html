@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+<body>
+
+    <!-- 스프링서버 실행 후: http://127.0.0.1:8080/day02/index.html -->
+    <h3>스프링(톰캣) 서버에서 실행되는 페이지(html)</h3>
+    <div> <!-- 레이아웃(구역) -->
+        전화번호 : <input type="text" class="phone" /> <br/> 
+        <!-- input입력상자, br줄바꿈 , class:마크업의식별자(복수) , id:마크업의 식별자(단일)-->
+        인원수 : <input type="text" class="haedcount" /> <br/>
+        <button onclick="waitingSave()"> 등록 </button>  <!-- button 클릭상자 , onclick="JS함수()"   : 해당 버튼 클릭시 JS함수 발동-->       
+
+    </div>
+
+    <div>
+        <table border="1"> <!-- 테이블 -->
+            <thead> <!-- 제목구역 -->
+                <tr> <!-- 행 -->
+                    <th> 번호 </th> <th> 전화번호 </th> <th> 인원수 </th> <th> 비고 </th> <!-- 제목셀 -->
+                </tr>
+
+            </thead>
+            <tbody class="waitingList"> <!-- 본문구역 -->
+                <tr>
+                    <td> 010-0000-0000 </td> <td> 인원수 </td> <td> 비고 </td> 
+                    <td> <button>수정</button> <button>삭제</button> </td><!-- 데이터셀(한칸) -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+    
+</body>
+</html>
