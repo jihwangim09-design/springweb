@@ -2,6 +2,7 @@ package example.day02.controller;
 
 import java.util.ArrayList;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,7 +48,7 @@ public class BoardController {
 
     // [4] 개별삭제 Controller
     @DeleteMapping( "/board/delete" )
-    public boolean delete( int no ){
+    public boolean delete( @RequestParam("no") int no ){
         return bd.delete( no );
     }
     
