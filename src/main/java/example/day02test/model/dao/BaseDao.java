@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class BaseDao {
 
-    private String url = "jdbc:mysql://127.0.0.1:3306/mydb0826";
+    private String url = "jdbc:mysql://127.0.0.1:3306/practice";
     private String user = "root";
     private String password = "1234";
 
