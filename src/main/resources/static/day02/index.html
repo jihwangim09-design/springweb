@@ -8,8 +8,40 @@
 </head>
 <body>
     
-
+    <!-- 스프링서버 실행 후: http://127.0.0.1:8080/day02/index.html -->
     <h3>스프링(톰캣) 서버에서 실행되는 페이지(html)</h3>
+    <div> <!-- 레이아웃(구역) -->
+        내용 : <input type="text" class="content" /> <br/> 
+        <!-- input입력상자, br줄바꿈 , class:마크업의식별자(복수) , id:마크업의 식별자(단일)-->
+        작성자 : <input type="text" class="writer" /> <br/>
+        <button onclick="boardSave()"> 등록 </button>             
+            <button> 등록 </button> <!-- button 클릭상자 , onclick="JS함수()"   : 해당 버튼 클릭시 JS함수 발동-->
+    </div>
+
+    <div>
+        <table border="1"> <!-- 테이블 -->
+            <thead> <!-- 제목구역 -->
+                <tr> <!-- 행 -->
+                    <th> 번호 </th> <th> 작성자 </th> <th> 내용 </th> <th> 비고 </th> <!-- 제목셀 -->
+                </tr>
+
+            </thead>
+            <tbody class="boardList"> <!-- 본문구역 -->
+                <tr>
+                    <td> 1 </td> <td> 유재석 </td> <td> 안녕하세요 </td> 
+                    <td> <button>수정</button> <button>삭제</button> </td><!-- 데이터셀(한칸) -->
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+
+
 </body>
 </html>
 
@@ -21,4 +53,8 @@
     src->main->resources-> static(html/css/js) -> 정적서버/웹서버
         src->main->resources->day02->index.html파일생성
         통신경로 : http://127.0.0.1:8080/day02/index.html
+
+    HTTP : 프로토콜/규약/규칙 , GET/POST/PUT/DELETE , http://ip:port/경로
+        -> 전화 규칙 , 010-0000-0000
+    HTTP :
 -->
