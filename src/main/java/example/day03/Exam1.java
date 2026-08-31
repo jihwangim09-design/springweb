@@ -39,9 +39,9 @@ public class Exam1 {
 // [4] 어노테이션 주입/사용: 사용처 위에 @어노테이션
 class TestClass{
     @MyAnnotation( value = "안녕하세요" , data = 10 ) // @내가만든어노테이션( )
-    public method3(){System.out.println("메소드3실행");}
+    public void method3(){System.out.println("메소드3실행");}
     @MyAnnotation( value = "안녕하세요2" )
-    public method4(){System.out.println("메소드4실행");}
+    public void method4(){System.out.println("메소드4실행");}
 }
 
 class SuperClass{ void method1(){} }    // - 상위클래스

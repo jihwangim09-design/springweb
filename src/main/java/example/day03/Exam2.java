@@ -25,7 +25,8 @@ public class Exam2 {
                     .name("강호동")
                     .math(95)
                     .build(); // - 빌더패턴 끝
-        // 즉 new 생성자명() [vs] 클래스명.builder().build();
+        // 즉 new 생성자명() [VS] 클래스명.builder().build();
+        // 클래스명.메소드명(): 메소드가 static이면 객체 필요없다. 
     } // main end
 } // class end
 @Builder // 빌더 패턴 지원
