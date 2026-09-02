@@ -2,7 +2,7 @@ package example.Practice2;
 
 import java.util.PrimitiveIterator;
 
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
