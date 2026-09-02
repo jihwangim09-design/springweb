@@ -1,4 +1,4 @@
-package example.day04;
+package example.Practice1;
 
 import java.util.ArrayList;
 
@@ -20,8 +20,13 @@ import lombok.NoArgsConstructor;
 @RequestMapping("/test")
 public class TestController {
     // [1] 게시물 등록
-    @PostMapping("")  // http://127.0.0.1:8080/test
-    public boolean testWrite(@RequestBody TestDto testDto){
+    @PostMapping("")  // http://127.0.0.1:8080/test 
+    // @PostMapping("") == @PostMapping(value = "") ("")은 추가 경로 없음 명시적 표현임
+    // @PostMapping("")        // 최종 경로: /test
+    // @PostMapping            // 최종 경로: /test  (동일)
+    // @PostMapping("/write")  // 최종 경로: /test/write (경로 추가됨)
+    public boolean testWrite(@RequestBody TestDto testDto){ 
+    // @RequestBody가 이 JSON을 TestDto 타입의 객체로 자동 변환(역직렬화)해서 testDto에 담음
         System.out.println("TestController.testWrite()");
         return true;
     }
@@ -29,7 +34,7 @@ public class TestController {
     @GetMapping("") // http://127.0.0.1:8080/test
     public ArrayList<TestDto> testPrint(){
         System.out.println("TestController.testPrint()");
-        ArrayList<TestDto> result = new ArrayList<>();
+        ArrayList<TestDto> result = new ArrayList<>(); // 앞에서 이미 TestDto라고 선언
         result.add(new TestDto(1, "내용1", "작성자1"));
         result.add(new TestDto(2, "내용2", "작성자2"));
         return result;
