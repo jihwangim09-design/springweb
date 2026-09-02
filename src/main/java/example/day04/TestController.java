@@ -19,13 +19,13 @@ import lombok.NoArgsConstructor;
 @RestController
 @RequestMapping("/test")
 public class TestController {
-
+    // [1] 게시물 등록
     @PostMapping("")  // http://127.0.0.1:8080/test
     public boolean testWrite(@RequestBody TestDto testDto){
         System.out.println("TestController.testWrite()");
         return true;
     }
-
+    // [2] 게시물 전체조회
     @GetMapping("") // http://127.0.0.1:8080/test
     public ArrayList<TestDto> testPrint(){
         System.out.println("TestController.testPrint()");
@@ -34,19 +34,19 @@ public class TestController {
         result.add(new TestDto(2, "내용2", "작성자2"));
         return result;
     }
-
+    // [3] 게시물 개별조회
     @GetMapping("/detail")  // http://127.0.0.1:8080/test/detail?no=1
     public TestDto tsetDetail(@RequestParam(name="no") int no){
         System.out.println("TestController.tsetDetail()");
         return new TestDto(1, "내용1", "작성자1");
     }
-
+    // [4] 게시물 삭제
     @PutMapping("") // http://127.0.0.1:8080/test
     public boolean testUpdate(@RequestBody TestDto testDto){
         System.out.println("TestController.testUpdate()");
         return true;
     }
-
+    // [5] 게시물 수정
     @DeleteMapping("/{no}")  // http://127.0.0.1:8080/test/1
     public boolean testDelete(@PathVariable(name="no") int no){
         System.out.println("TestController.testDelete()"); 
