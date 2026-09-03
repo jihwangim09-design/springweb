@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,16 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @Autowired private TestService testService;
 
-    // 1. 전체조회
+    // 1. 전체조회 , http://localhost:8080/test
     @GetMapping("/test")
     public List<TestDto> 전체조회( ){
         return testService.전체조회( );
     }
 
-    // 2. 등록
+    // 2. 등록 , http://localhost:8080/test {"name": "비요뜨" , "price" : 700 , "descri": "앙"}
+    // createDate가 자동으로 들어가는지 확인!!
     @PostMapping("/test")
     public boolean 저장( @RequestBody TestDto testDto ){
         return testService.저장( testDto );
     }
-    // 3. 수정  
+    // 3. 수정 , http://localhost:8080/test {"no" : 1 , "price" : 2000 , "descri": "앙앙"}
+    @PutMapping("/test")
+    public boolean 수정( @RequestBody TestDto testDto ){
+        return testService.수정( testDto );
+    }
 }
