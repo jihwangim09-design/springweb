@@ -21,6 +21,7 @@ public class TestDto { // 서로 다른 계층간 이동객체( Controller에서
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
     // DTO ----> ENTITY 함수 : C -> S(D -> E) , toEntity( ) , 주로 save/update 목적
+    // this란? 해당 메소드 호출한 인스턴스 가리킴. 즉 myDto.toEntity()라고 호출하면 this는 myDto 가리킴
     public TestEntity toEntity( ){
         return TestEntity.builder() // 빌더패턴이란? new 대신에 객체생성을 메소드 방식 지원
                 .name(this.name)
@@ -30,7 +31,8 @@ public class TestDto { // 서로 다른 계층간 이동객체( Controller에서
 
     }
     // ENTITY ----> DTO 함수 : S -> C( E -> D) , from( Entity entity ) , 주로 find
-    // Static이란? 인스턴스 없이 호출가능 메소드/변수
+    // Static 이란? 인스턴스 없이 호출가능 메소드/변수
+    // Static 에는 this가 없을까? 인스턴스없이 사용하는 메서드
     public static TestDto from( TestEntity testEntity ){
         return TestDto.builder() // 빌더시작 , 순서/개수 상관없이 자유롭게 객체생성가능
                 .name( testEntity.getName() )
