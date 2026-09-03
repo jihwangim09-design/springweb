@@ -1,0 +1,1 @@
+SQL작성 -> application.properties작성 (미리 작성했으면 DB명 확인) -> Entity(작성)

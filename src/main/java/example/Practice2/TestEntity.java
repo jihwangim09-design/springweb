@@ -13,14 +13,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table( name = "test" )
+@Entity // 데이터베이스 테이블과 자바 클래스와 매핑/연결
+@Table( name = "test" ) // 연결한 테이블명 지정, 생략시 클래스명
 @Data@AllArgsConstructor@NoArgsConstructor@Builder // 롬복
 public class TestEntity {
-    @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    @Id // PRIMARY KEY
+    @GeneratedValue( strategy = GenerationType.IDENTITY ) // AUTO_INCREMENT
     private Integer no;
     private String content;
     private String writer;
     
 }
+
+/*
+    JPA 영속성이란? 자바의 데이터가 사라지지 않게 데이터베이스 저장
+        -> 자바 프로그램(휘발성/영구저장불가능)
+        -> 데이터베이스 프로그램(비휘발성/영구저장가능)
+*/
