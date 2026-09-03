@@ -23,7 +23,7 @@ public class TestController {
 
     // [1] 게시물등록 POST /test
     @PostMapping( "/test" )
-    public boolean testWrite( @RequestBody TestEntity entity ){
+    public boolean testWrite( @RequestBody TestEntity entity ){ // TestEntity 자바 객체로 자동 변환해서 entity에 담음
         return testService.testWrite( entity );
     }
 

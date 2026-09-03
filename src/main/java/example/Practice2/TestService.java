@@ -53,14 +53,24 @@ public class TestService {
     }
 
     // [5] 게시물 수정
-    @Transactional
+    @Transactional // 성공하면 commit 중간에 하나라도 에러나면 rollback
     public boolean testUpdate( TestEntity entity ){
-        Optional<TestEntity> optional = testRepository.findById( entity.getNo() );
-        if( optional.isPresent() ) {
-            TestEntity savedEntity = optional.get();
+        Optional<TestEntity> optional = testRepository.findById( entity.getNo() ); 
+        // 앞에서 { "no": 1, "content": "수정된 내용입니다" } 이렇게 보냈다 치면 entity.getNo()는 no 값(1)을 꺼내고
+        // findById(1) no가 1인 게시물"을 SELECT해서 가져옴
+        // 이때 findById()는 조회 결과가 있을 수도 없을 수도 있는데 이때 그냥 null을 리턴하면 NullPointerException 예외가 발생 할 수 있음 그래서 Optional로 포장
+        if( optional.isPresent() ) { // isPresent()는 값이 있는지 확인 값이 있으면 true 값이 없으면 false
+            TestEntity savedEntity = optional.get(); // 이 코드는 Optional상자안에 값이 있을 때만 실행
             savedEntity.setContent( entity.getContent() );
-            return true;
+            // savedEntity.no      = 1
+            // savedEntity.content = "안녕하세요"     ← DB에 있던 원래 값
+            // savedEntity.writer  = "유재석"
+            // 1. entity.getContent() 클라이언트가 보낸 새값을 꺼냄 entity.content = "수정"
+            // 2. savedEntity.setContent 기존 객체의 content를 새 값으로 덮어씀
+            // 3. savedEntity.content 이바뀌어서 jpa update 쿼리 자동 실행
+
+            return true; // 수정 성공 의미
         }
-        return false;
+        return false; // 수정 실패 의미
     }
 }
