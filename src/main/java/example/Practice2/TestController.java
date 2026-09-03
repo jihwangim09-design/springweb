@@ -22,32 +22,32 @@ public class TestController {
     private final TestService testService;
 
     // [1] 게시물등록 POST /test
-    @PostMapping( "/test" )
+    @PostMapping( "/practice2/test" )
     public boolean testWrite( @RequestBody TestEntity entity ){ // TestEntity 자바 객체로 자동 변환해서 entity에 담음
         return testService.testWrite( entity );
     }
 
     // [2] 게시물 전체조회 GET /test
-    @GetMapping( "/test" )
+    @GetMapping( "/practice2/test" )
     public List<TestEntity> testPrint( ){
         return testService.testPrint();
     }
 
     // [3] 게시물 개별조회 GET /test/detail?no=1
-    @GetMapping( "/test/detail" )
+    @GetMapping( "/practice2/test/detail" )
     public TestEntity testDetail( @RequestParam( name = "no" ) int no ){
          // ex) /test/detail?no=1이면, "no=1"에서 1을 꺼내옴
         return testService.testDetail( no );
     }
 
     // [4] 게시물 삭제 DELETE /test?no=1
-    @DeleteMapping( "/test" )
+    @DeleteMapping( "/practice2/test" )
     public boolean testDelete( @RequestParam( name = "no" ) int no ){
         return testService.testDelete( no );
     }
 
     // [5] 게시물 수정 PUT /test
-    @PutMapping( "/test" )
+    @PutMapping( "/practice2/test" )
     public boolean testUpdate( @RequestBody TestEntity entity ){
         return testService.testUpdate( entity );
     }
