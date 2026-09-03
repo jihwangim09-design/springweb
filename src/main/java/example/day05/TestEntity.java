@@ -25,9 +25,9 @@ public class TestEntity extends BaseTime {
     @Column( name="name" , nullable = false , length = 100 , unique = true ) // 제약조건
     private String name; // 이름
     @Column( columnDefinition = "varchar(100) not null default '제품설명'")
-    private String desc; // 설명
+    private String descri; // 설명
     @Column( insertable = true , updatable = true )
-    private String price; // 가격
+    private Integer price; // 가격
     // + 제품 등록일 ++ 제품 수정일 --> basetime 상속
 }
 /*
