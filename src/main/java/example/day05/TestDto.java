@@ -40,6 +40,7 @@ public class TestDto { // 서로 다른 계층간 이동객체( Controller에서
                 .price( testEntity.getPrice() )
                 .createDate( testEntity.getCreateDate() )
                 .updateDate( testEntity.getUpdateDate() )
+                .no( testEntity.getNo() )
                 .build(); // 끝
 
     }
