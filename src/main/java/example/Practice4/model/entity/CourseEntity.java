@@ -1,12 +1,11 @@
 package example.Practice4.model.entity;
 
-import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.engine.profile.Fetch;
 
-import example.Practice3.BaseTime;
+import example.Practice4.BaseTime;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
