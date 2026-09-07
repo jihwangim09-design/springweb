@@ -29,7 +29,7 @@ public class CommentDto {
                 // boardEntity(게시글 객체)는 여기서 안 채움 ??
     }
     // 조회용: Entity → DTO
-    public static CommentDto from(CommentDto entity){
+    public static CommentDto from(CommentEntity entity){
         return CommentDto.builder()
                 .commentId(entity.getCommentId())
                 .author(entity.getAuthor())

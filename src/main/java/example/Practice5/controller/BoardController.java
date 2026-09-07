@@ -1,8 +1,39 @@
 package example.Practice5.controller;
 
+
+import java.util.List;
+import example.Practice5.Service.BoardService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import example.Practice5.dto.BoardDto;
 
 @RestController 
 public class BoardController {
+    @Autowired private BoardService boardService;
+
+
+    @PostMapping ("/api/board")
+    public boolean 게시물등록(
+        @RequestBody BoardDto boardDto ){
+            return boardService.게시물등록( boardDto );
+    }
     
+    @GetMapping  ("/api/board")
+    public List<BoardDto> 게시물전체조회( ){
+        return boardService.게시물전체조회();
+    }
+
+    @DeleteMapping ("/api/board")
+    public boolean 게시물삭제(
+        @RequestParam Integer boardId, // @RequestParam(name = "boardId") Integer boardId 이름 지정
+        @RequestParam String password
+    ){
+        return boardService.게시물삭제(boardId, password);
+    }
 }
