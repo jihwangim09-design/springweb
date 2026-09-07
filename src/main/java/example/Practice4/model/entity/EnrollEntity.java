@@ -2,7 +2,7 @@ package example.Practice4.model.entity;
 
 import org.hibernate.annotations.ManyToAny;
 
-import example.Practice3.BaseTime;
+import example.Practice4.BaseTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

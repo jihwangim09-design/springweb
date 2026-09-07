@@ -31,8 +31,8 @@ public class CourseDto {
         return CourseDto.builder()
                 .courseId( entity.getCourseId() )
                 .courseName( entity.getCourseName() )
-                .createdAt( entity.getCreateDate() )
-                .updatedAt( entity.getUpdateDate() )
+                .createdAt( entity.getCreatedAt() )
+                .updatedAt( entity.getUpdatedAt() )
                 // 학생목록은 서비스계층 에서~
                 .build();
     }
