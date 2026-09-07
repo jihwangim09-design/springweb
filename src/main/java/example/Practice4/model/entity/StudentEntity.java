@@ -3,7 +3,7 @@ package example.Practice4.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import example.Practice3.BaseTime;
+import example.Practice4.BaseTime;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

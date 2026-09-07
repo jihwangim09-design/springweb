@@ -18,15 +18,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
- 	
 
- 	
 @Entity@Table( name="enroll")
 @NoArgsConstructor@AllArgsConstructor@Builder@Data
 public class EnrollEntity extends BaseTime  {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private Integer studentId;
+    private Integer enrollId;
     @Column
     private String status;
     // ---------- FK : 과정번호 -------------
