@@ -1,1 +1,3 @@
+DROP DATABASE IF EXISTS practice4;
 CREATE DATABASE practice4;
+
