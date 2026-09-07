@@ -1,5 +1,10 @@
 package example.Practice4.model.repository;
 
-public class EnrollRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import example.Practice4.model.entity.CourseEntity;
+
+public interface EnrollRepository extends JpaRepository< CourseEntity , Integer > {
+
     
 }
