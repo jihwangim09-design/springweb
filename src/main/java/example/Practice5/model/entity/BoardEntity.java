@@ -1,8 +1,10 @@
 package example.Practice5.model.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import example.Practice5.Basetime;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
