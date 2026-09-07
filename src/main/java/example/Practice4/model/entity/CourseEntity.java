@@ -45,6 +45,6 @@ public class CourseEntity extends BaseTime{
     // List<EnrollEntity> 이거보고 판단해서 EnrollEntity 클래스 안에 가서 courseEntity라는 필드를 찾는다고 해석
     @ToString.Exclude // 순환참조방지
     @Builder.Default // 빌더패턴 사용시 초기값 사용
-    private List<EnrollEntity> entites = new ArrayList<>();
+    private List<EnrollEntity> enrollEntities = new ArrayList<>();
     
 }

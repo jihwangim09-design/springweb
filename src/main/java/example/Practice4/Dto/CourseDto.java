@@ -21,9 +21,9 @@ public class CourseDto {
     private List<StudentDto> studentDtos = new ArrayList<>();
     // + toEntity : 과정등록 용도
     public CourseEntity toEntity( ){
-        return CourseEntity.builder()
-                .courseName(this.courseName)
-                .build();
+        return CourseEntity.builder() // → 빈 빌더 생성 밑에서 .build();로 완성된 객체 리턴
+                .courseName(this.courseName) // courseDto가 { courseName: "자바과정" } 이라는 값을 갖고 있었다면 "자바과정"을 꺼내옴
+                .build(); // CourseEntity 객체완성
     }
     // + from : 출력 용도
     public static CourseDto from( CourseEntity entity ){

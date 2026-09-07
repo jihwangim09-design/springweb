@@ -1,6 +1,7 @@
 package example.Practice4.controller;
 
 import example.Practice4.dto.CourseDto;
+import example.Practice4.dto.EnrollDto;
 import example.Practice4.model.repository.EnrollRepository;
 import example.Practice4.service.CourseService;
 
@@ -21,5 +22,16 @@ import example.Practice4.service.EnrollService;
 public class EnrollController {
 
     @Autowired private EnrollService enrollService;
+
+    @PostMapping("")
+    public boolean 수강등록( @RequestBody EnrollDto enrollDto ){
+        return enrollService.수강등록( enrollDto );
+    }
+
+    @GetMapping("/detail")
+    public EnrollDto 수강조회( 
+        @RequestParam( name = "enrollId") Integer enrollId){
+        return enrollService.수강조회( enrollId );
+    }
 
 }
