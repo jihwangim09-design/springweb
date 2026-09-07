@@ -14,16 +14,16 @@ import example.Practice5.dto.CommentDto;
 public class CommentController {
     @Autowired private CommentService commentService;
 
-    @PostMapping ("/api/board/comment")
+    @PostMapping ("/api/board/comments") // 
     public boolean 댓글등록(
         @RequestBody CommentDto commentDto){
             return commentService.댓글등록( commentDto );
     }
 
-    @DeleteMapping ("/api/board/comment")
+    @DeleteMapping ("/api/board/comments")
     public boolean 댓글삭제(
-        @RequestParam Integer commentId,
-        @RequestParam String password
+        @RequestParam(name = "commentId") Integer commentId,
+        @RequestParam(name = "password") String password
     ){
         return commentService.댓글삭제(commentId , password);
     }

@@ -35,6 +35,7 @@ public class BoardDto {
                 .boardId( entity.getBoardId() ) // private Integer boardId;
                 .author( entity.getAuthor() )
                 .content(entity.getContent() )
+                .password(entity.getPassword() )
                 .createdAt( entity.getCreatedAt() )
                 .updatedAt( entity.getUpdatedAt() )
                 .build();

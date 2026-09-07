@@ -18,21 +18,22 @@ public class BoardController {
     @Autowired private BoardService boardService;
 
 
-    @PostMapping ("/api/board")
+    @PostMapping ("/api/board") // http://localhost:8080/api/board
+    // {"author": "테스트작성자", "password": "1234", "content": "테스트 내용입니다" }
     public boolean 게시물등록(
         @RequestBody BoardDto boardDto ){
             return boardService.게시물등록( boardDto );
     }
     
-    @GetMapping  ("/api/board")
+    @GetMapping  ("/api/board") // http://localhost:8080/api/board
     public List<BoardDto> 게시물전체조회( ){
         return boardService.게시물전체조회();
     }
 
-    @DeleteMapping ("/api/board")
-    public boolean 게시물삭제(
-        @RequestParam Integer boardId, // @RequestParam(name = "boardId") Integer boardId 이름 지정
-        @RequestParam String password
+    @DeleteMapping ("/api/board") // http://localhost:8080/api/board?boardId=4&password=1234
+    public boolean 게시물삭제( 
+        @RequestParam(name = "boardId") Integer boardId, // @RequestParam(name = "boardId") Integer boardId 이름 지정
+        @RequestParam(name = "password") String password
     ){
         return boardService.게시물삭제(boardId, password);
     }

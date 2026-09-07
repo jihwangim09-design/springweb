@@ -16,7 +16,8 @@ public class CommentService {
     @Autowired private BoardRepository boardRepository; // 댓글 등록 시 boardId(숫자)로 진짜 BoardEntity 객체를 조회해서 FK로 연결하기 위해 필요
 
     // 1.등록
-    public boolean 댓글등록( CommentDto commentDto ){
+    public boolean 댓글등록( CommentDto commentDto ){ // http://localhost:8080/api/board/comments
+        // {"boardId": 1,"author": "댓글테스트","password": "9999","content": "테스트 댓글" }
         CommentEntity commentEntity = commentDto.toEntity();
         CommentEntity savedEntity = commentRepository.save( commentEntity );
         if( savedEntity.getCommentId() >= 1 ) return true;
