@@ -29,7 +29,8 @@ public class BoardEntity extends Basetime {
     @Id
     @GeneratedValue ( strategy = GenerationType.IDENTITY )
     private Integer boardId;
-    @Column 
+    // @Column
+    // author, password, content는 옵션 없이 쓸 거면 @Column 생략 가능
     private String author;
     private String password;
     private String content;
@@ -43,4 +44,5 @@ public class BoardEntity extends Basetime {
     // 댓글(CommentEntity)을 여러 개 담을 리스트
     private List<CommentEntity> commentEntities = new ArrayList<>();// 여기서 new ArrayList<>() 이게 Default?
     // 빌더 패턴 사용시에는 new ArrayList<>(); 가 현재 초기값을 Default로 하겠다?
+    // 생성자는 메서드라서 매개변수 위치를 지켜야하는데 빌더를 쓰면 순서 상관없이 유연하다.
 }
