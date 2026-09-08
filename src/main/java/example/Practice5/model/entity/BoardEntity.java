@@ -19,6 +19,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+// 즉 엔티티란? 영속석의 실체 , 데이터베이스 표
+// 다르면 연동/매핑이 안된다
 
 @Entity@Table ( name = "board")
 @Data @NoArgsConstructor @AllArgsConstructor @Builder 
@@ -34,10 +36,11 @@ public class BoardEntity extends Basetime {
 
     // 한 게시글에는 여러 댓글 등록 가능
     // mappedBy = "boardEntity"FK는  CommentEntity의 boardEntity 필드가 갖고 있음
-    @OneToMany(mappedBy = "boardEntity", cascade = CascadeType.ALL)
-    @ToString.Exclude
-    @Builder.Default
+    // 양방향
+    @OneToMany(mappedBy = "boardEntity", cascade = CascadeType.ALL) 
+    @ToString.Exclude // 양방환순환참조방지
+    @Builder.Default // 
     // 댓글(CommentEntity)을 여러 개 담을 리스트
-    private List<CommentEntity> commentEntities = new ArrayList<>();
-     
+    private List<CommentEntity> commentEntities = new ArrayList<>();// 여기서 new ArrayList<>() 이게 Default?
+    // 빌더 패턴 사용시에는 new ArrayList<>(); 가 현재 초기값을 Default로 하겠다?
 }

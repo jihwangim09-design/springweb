@@ -27,9 +27,9 @@ public class CommentEntity extends Basetime {
     private String author;
     private String password;
     private String content;
-    // FK //
+    // FK란? 다른테이블(엔티티) 참조
     @JoinColumn( name = "board_id")
-    @ManyToOne 
+    @ManyToOne // M : 1
     private BoardEntity boardEntity;
 
 }
