@@ -40,7 +40,7 @@ public class BoardEntity extends Basetime {
     // 양방향
     @OneToMany(mappedBy = "boardEntity", cascade = CascadeType.ALL) 
     @ToString.Exclude // 양방환순환참조방지
-    @Builder.Default // 
+    @Builder.Default //  
     // 댓글(CommentEntity)을 여러 개 담을 리스트
     private List<CommentEntity> commentEntities = new ArrayList<>();// 여기서 new ArrayList<>() 이게 Default?
     // 빌더 패턴 사용시에는 new ArrayList<>(); 가 현재 초기값을 Default로 하겠다?
