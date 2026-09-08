@@ -18,26 +18,27 @@ public class BoardService {
 
     // 1. 등록
     public boolean 게시물등록( BoardDto boardDto ){
-        BoardEntity boardEntity = boardDto.toEntity();
-        BoardEntity savedEntity = boardRepository.save( boardEntity );
-        if( savedEntity.getBoardId() >= 1 ) return true;
+        BoardEntity boardEntity = boardDto.toEntity(); // DTO를 ENTITY로 바꿈
+        BoardEntity savedEntity = boardRepository.save( boardEntity ); // ENTITY SAVE
+        if( savedEntity.getBoardId() >= 1 ) return true; // PK가 존재하면 true
         return false;
     }
 
     // 2. 전체조회
     public List<BoardDto> 게시물전체조회(){
-        // 1. findAll 전체조회
+        // 1. findAll 전체조회 findAll
         List<BoardEntity> boardEntities = boardRepository.findAll();
+        // 모든 entity -> dto 변환 , 여러번(반복)
         // 2. 전체조회 Entity
         List<BoardDto> boardDtos = new ArrayList<>();
         boardEntities.forEach( (boardEntity ) -> {
-            BoardDto boardDto = BoardDto.from(boardEntity);
+            BoardDto boardDto = BoardDto.from(boardEntity); // entity -> dto
             // *** 게시글에 달린 댓글 목록 채우기 ***
             boardEntity.getCommentEntities().forEach((commentEntity) -> {
             CommentDto commentDto = CommentDto.from(commentEntity);
             boardDto.getComments().add(commentDto);
             });
-            boardDtos.add(boardDto);  // 변환된 dto를 리스트에 저장
+            boardDtos.add(boardDto); // 변환된 dto를 리스트에 저장
         }); 
         return boardDtos;
     }
@@ -46,6 +47,7 @@ public class BoardService {
     public boolean 게시물삭제( Integer boardId , String password ) {
         Optional<BoardEntity> optional = boardRepository.findById(boardId);
 
+        
         if (optional.isPresent()){
             BoardEntity boardEntity = optional.get();
             if (boardEntity.getPassword().equals(password)){  // 비밀번호 일치 확인

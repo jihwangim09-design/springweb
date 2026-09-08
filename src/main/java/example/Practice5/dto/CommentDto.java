@@ -15,8 +15,10 @@ public class CommentDto {
     private String author;
     private String password;
     private String content;
+    // + BASETIME
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    // + FK
     private Integer boardId; // 어느 게시글에 달리는 댓글인지 (FK를 숫자로 받음)
 
     // 등록용: DTO → Entity
@@ -36,7 +38,7 @@ public class CommentDto {
                 .content(entity.getContent())
                 .createdAt(entity.getCreatedAt())
                 .updatedAt(entity.getUpdatedAt())
-                .boardId(entity.getBoardEntity().getBoardId())  // 연결된 게시글의 ID만 꺼내옴 ??
+            //  .boardId(entity.getBoardEntity().getBoardId())  // 연결된 게시글의 ID만 꺼내옴 ?? 이거는 안쓰는듯?
                 // Comment 안에 있는 Board 객체를 꺼내고 그 Board 객체 안의 boardId를 또 꺼내기?
                 .build();
     }

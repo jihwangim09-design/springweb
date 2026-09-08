@@ -21,7 +21,7 @@ public class BoardDto {
     // + BASETIME
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    // 댓글 목록 //
+    // + 댓글 목록 //
     @Builder.Default
     private List<CommentDto> comments = new ArrayList<>();
     // 
@@ -33,14 +33,15 @@ public class BoardDto {
                 .build();
     }
     //
-    public static BoardDto from( BoardEntity entity ){
+   public static BoardDto from( BoardEntity entity ){
         return BoardDto.builder()
                 .boardId( entity.getBoardId() ) // private Integer boardId;
                 .author( entity.getAuthor() )
-                .content(entity.getContent() )
-                .password(entity.getPassword() )
+                .content( entity.getContent() )
+                .password( entity.getPassword() )
                 .createdAt( entity.getCreatedAt() )
                 .updatedAt( entity.getUpdatedAt() )
                 .build();
     }
 }
+ 
