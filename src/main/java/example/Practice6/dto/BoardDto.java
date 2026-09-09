@@ -1,0 +1,5 @@
+package example.Practice6.dto;
+
+public class BoardDto {
+    
+}
