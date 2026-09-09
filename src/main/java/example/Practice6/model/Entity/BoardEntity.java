@@ -3,6 +3,7 @@ package example.Practice6.model.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import example.Practice6.BaseTime;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,18 +18,17 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity @Table ( name = "board")
-@Data @NoArgsConstructor @AllArgsConstructor @Builder 
-public class BoardEntity {
+@Data @NoArgsConstructor @AllArgsConstructor @Builder
+public class BoardEntity extends BaseTime {
     @Id 
     @GeneratedValue ( strategy = GenerationType.IDENTITY )
-    private Integer boardId;
+    private Integer Id;
     private String author;
     private String password;
     private String content;
 
-    @OneToMany ( mappedBy = "boardEntity" , cascade = CascadeType.ALL )
+    @OneToMany ( mappedBy = "boardEntity" , cascade = CascadeType.ALL)
     @ToString.Exclude
     @Builder.Default
-    private List<CommentEntity> commenttities = new ArrayList<>();
-    
+    private List<CommentEntity> commentEntities = new ArrayList<>();
 }

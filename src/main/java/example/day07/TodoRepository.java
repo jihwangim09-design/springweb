@@ -12,7 +12,7 @@ public interface TodoRepository extends JpaRepository < TodoEntity , Integer> {
     // 1. CRUD 메소드 제공 : .save() .findAll() .findBy .deleteBy() 등등
     // 2. 쿼리메소드 : SQL 작성하지 않고 추상메소드 이름으로 쿼리 자동 생성 주의할점 : 카멜 표기법 사용해야함
     // 반환타입 findBy필드명( 타입 매개변수명 ); 주의할점: 필드명에 대소문자(카멜)규칙 , 존재하는 필드명만 가능
-    TodoEntity findByTitle2( String title );
+    List<TodoEntity> findByTitle(String title);
     // TodoEntity findByTitleAndContent( String title , String content );
     List<TodoEntity> findByTitleAndContent( String title , String content );
     Map<String,Object> findByTitleOrContent( String title , String content );

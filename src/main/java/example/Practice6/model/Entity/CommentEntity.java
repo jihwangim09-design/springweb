@@ -1,6 +1,6 @@
 package example.Practice6.model.Entity;
 
-import example.Practice3.BaseTime;
+import example.Practice6.BaseTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,16 +13,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity @Table ( name = "commnet")
+@Entity @Table ( name = "comment")
 @Data @NoArgsConstructor @AllArgsConstructor @Builder 
 public class CommentEntity extends BaseTime{
     @Id 
     @GeneratedValue ( strategy = GenerationType.IDENTITY )
-    private Integer commentId;
+    private Integer Id;
     private String author;
     private String password;
     private String content;
-
+    
     @ManyToOne 
     @JoinColumn ( name = "board_id")
     private BoardEntity boardEntity;
