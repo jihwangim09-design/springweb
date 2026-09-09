@@ -1,31 +1,23 @@
-package example.Practice6.model.Entity;
+package example.day07;
 
-import example.Practice3.BaseTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity @Table ( name = "commnet")
+@Entity @Table ( name = "todo")
 @Data @NoArgsConstructor @AllArgsConstructor @Builder 
-public class CommentEntity extends BaseTime{
+public class TodoEntity {
     @Id 
     @GeneratedValue ( strategy = GenerationType.IDENTITY )
-    private Integer commentId;
-    private String author;
-    private String password;
+    private Integer Id;
+    private String title;
     private String content;
-
-    @ManyToOne 
-    @JoinColumn ( name = "board_id")
-    private BoardEntity boardEntity;
-
-
+    private Boolean done;
+    
 }
