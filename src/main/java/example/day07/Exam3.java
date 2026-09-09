@@ -1,6 +1,5 @@
 package example.day07;
 
-import static org.junit.jupiter.api.DynamicTest.stream;
 
 import java.util.Comparator;
 import java.util.List;
@@ -39,6 +38,12 @@ public class Exam3 {
                                     .limit(3)                       // 반환개수제한 (중간연산)
                                     .toList();                               // 리스트로 반환 (최종연산)
             System.out.println( newList5 ); // [10 , 8 , 6]
+            // JPA에서 Entity <--> DTO 변환 가능
+
+            // 스트림이란? 컬렉션(리스트) 인스턴스를 흐름단위로 중간연산과 최종연산 제공 API(미리만든클래스/메소드)
+            // 메소드레퍼런스API: 미리 만들어진 메소드들을 간편하게 호출하는 방법 제공 API
+            // System.out.println("메소드 호출의 정석"); --> (x) -> System.out::print("메소드 호출의 레퍼런스방식");
+            
 
     }   
 }
