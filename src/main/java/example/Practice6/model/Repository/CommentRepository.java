@@ -1,5 +1,10 @@
 package example.Practice6.model.Repository;
 
-public class CommentRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import example.Practice5.model.entity.CommentEntity;
+
+public interface CommentRepository extends JpaRepository < CommentEntity , Integer >{
+
     
 }
