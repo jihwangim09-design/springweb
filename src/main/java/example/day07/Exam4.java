@@ -42,7 +42,8 @@ public class Exam4 {
         }
         // 스트림API
         List<Student> list2 = names.stream().map( (name) -> {return new Student(name); } ).toList();
-        
+        // 메소드참조(레퍼런스)
+        List<Student> list3 = names.stream().map( Student::new ).toList();
 
     }
 }
@@ -51,3 +52,12 @@ class Student{
     public Student( String name){ this.name = name;}
 }
 
+
+/*
+    1. 클래스명::static메소드명
+    2. 인스턴스명::메소드명
+    3. 클래스명::new
+
+    JPA 서비스 구조 : entity --> dto변환
+    List<MemberDto> list = entityList.stream().map((entity) -> {return MemberDto.from(entity);} ).toList();
+*/
