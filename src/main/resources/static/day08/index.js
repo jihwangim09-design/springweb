@@ -87,6 +87,17 @@ printScore( 50 , printSuccces , ( message ) => { console.log('실패'+message)})
 // 함수명( 3+3 ); 인수: 6   // 함수명( plus(3,3) ) , 인수:6         // 함수명( plus ) , 인수: plus함수
 
 
+// 10. 동기식: 먼저 호출한 함수/기능이 결과가 올때까지 대기상태 , 동기화    
+//     비동기: 먼저 호출한 함수/기능이 결과는 순서 상관없이 결과 반환 상태 , axios
+// axios 비동기통신이다. 동기화로 만드는 방법 , (1) 선언 함수앞에 async , (2) axios앞에 await
+const backLoad = async ( ) => {
+    const response = await axios( );
+
+}
+backLoad( )
+
+
+
 
 
 
