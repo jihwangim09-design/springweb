@@ -23,7 +23,11 @@ public class BoardDto {
     private List<CommentDto> comments = new ArrayList<>();
 
     public BoardEntity toEntity(){
-        return BoardEntity.builder()
+        return BoardEntity.builder() // .build()가 실행되면 객체가 생성
+        // this는 이 메서드를 실행하고 있는 바로 그 객체 자신
+        // 여기서는 boardDto.toEntity()를 통해 toEntity()를 실행했으므로 
+        // .author(this.author)는 boardDto 객체가 가지고 있던 author를 가리킨다
+        // 이 객체는 boardDto에서 온 객체를 가지고있음
                 .author(this.author)
                 .password(this.password)
                 .content(this.content)

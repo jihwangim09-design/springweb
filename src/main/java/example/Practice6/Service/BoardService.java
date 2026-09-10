@@ -24,6 +24,8 @@ public class BoardService {
 
     public boolean 게시물등록( BoardDto boardDto ){
         BoardEntity boardEntity = boardDto.toEntity(); // dto --> entity 
+        // public interface BoardRepository extends JpaRepository<BoardEntity, Integer>
+        // BoardEntity 타입만 다룬다고 명시했기에 dto --> entity 를 해줘야함
         BoardEntity savedEntity = boardRepository.save( boardEntity ); // entity save 
         if( savedEntity.getId() >= 1 ) return true; // pk가 존재하면 성공 
         return false;
