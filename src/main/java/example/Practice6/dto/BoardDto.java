@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 @Data @NoArgsConstructor @AllArgsConstructor @Builder 
 public class BoardDto {
-    private Integer Id;
+    private Integer id;
     private String author;
     private String password;
     private String content;
@@ -32,7 +32,7 @@ public class BoardDto {
 
     public static BoardDto from(BoardEntity entity){
         return BoardDto.builder()
-                .Id( entity.getId() )
+                .id( entity.getId() )
                 .author( entity.getAuthor() )
                 .password( entity.getPassword() ) 
                 .content( entity.getContent() )
